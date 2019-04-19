@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1553484103251.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1463058557",
+    "id" : "340A2715",
+    "lastKnownWriteTime" : 1553570234,
+    "last_content_update" : 1554005936589,
+    "path" : "C:/Users/andrecp/Desktop/Mestrado/pacote/geralReg/R/reg.R",
+    "project_path" : "R/reg.R",
+    "properties" : {
+        "cursorPosition" : "414,7",
+        "scrollLine" : "396"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

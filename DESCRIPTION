@@ -1,0 +1,19 @@
+Package: geralReg
+Type: Package
+Title: Normal regression model with general parameterization
+Version: 0.1.0
+Authors@R: c(person("Andre","Casagrandi Perette",email="andre.casagrandi@gmail.com", role="cre"),person("Alexandre","Patriota",email="alexandre@gmail.com", role="aut"))
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports:
+  stringr,
+  dplyr,
+  Deriv,
+  Matrix
+Collate:
+  'reg.R'
+  'auxi.R'
+RoxygenNote: 6.1.1

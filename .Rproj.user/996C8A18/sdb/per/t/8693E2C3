@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "#Ler parametros\ndefinir_parametros = function(char,data){\n  termos = char %>%\n    stringr::str_replace_all(\" \",\"\") %>%\n    stringr::str_replace_all(stringr::fixed(\")\"),\"+\") %>%\n    stringr::str_replace_all(stringr::fixed(\"(\"),\"+\") %>%\n    stringr::str_split(\"[(*),(+),(\\\\-),(^)]\") %>%\n    unlist\n  excluir=c(\"log\",\"exp\",\"sqrt\",\"sen\",\"cos\",\"\")\n  covar = termos[termos %in% names(data)] %>% unique\n  parametros = termos[!termos %in% c(names(data),excluir)]\n  parametros=suppressWarnings(parametros[is.na(as.numeric(parametros))] %>% unique)\n  return(list(covar=covar,parametros=parametros))\n}\n\nestruturar = function(char,lista){\n  c0=list()\n  c0$ori=c(\"log\",\"exp\",\"sqrt\",\"sen\",\"cos\") %>% {.[order(nchar(.),decreasing = T)]}\n  c0$int=paste0(\"|\",1:length(c0$ori))\n  c1=list()\n  c1$ori=lista[[1]] %>% {.[order(nchar(.),decreasing = T)]}\n  c1$int=paste0(\"~\",1:length(c1$ori))\n  c1$final=paste0(\"data$\",c1$ori)\n  c2=list()\n  c2$ori=lista[[2]] %>% {.[order(nchar(.),decreasing = T)]}\n  c2$int=paste0(\"¨\",1:length(c2$ori))\n  c2$final=paste0(\"theta$\",c2$ori)\n  k_max=max(length(c0$ori),length(c1$ori),length(c2$ori))\n\n  for(k in 1:k_max){\n    if(k<=length(c0$ori))\n      char=stringr::str_replace_all(char,c0$ori[k],c0$int[k])\n    if(k<=length(c1$ori))\n      char=stringr::str_replace_all(char,c1$ori[k],c1$int[k])\n    if(k<=length(c2$ori))\n      char=stringr::str_replace_all(char,c2$ori[k],c2$int[k])}\n\n  for(k in k_max:1){\n    if(k<=length(c1$ori))\n      char=stringr::str_replace_all(char,stringr::fixed(c1$int[k]),c1$final[k])\n    if(k<=length(c2$ori))\n      char=stringr::str_replace_all(char,stringr::fixed(c2$int[k]),c2$final[k])\n    if(k<=length(c0$ori))\n      char=stringr::str_replace_all(char,stringr::fixed(c0$int[k]),c0$ori[k])}\n\n  return(paste0(\"(\",char,\")\"))  }\n\n#' Pipe operator\n#'\n#' See \\code{\\link[magrittr]{\\%>\\%}} for more details.\n#'\n#' @name %>%\n#' @rdname pipe\n#' @keywords internal\n#' @export\n#' @importFrom magrittr %>%\n#' @usage lhs \\%>\\% rhs\nNULL\n",
+    "created" : 1534267472016.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1635458252",
+    "id" : "8693E2C3",
+    "lastKnownWriteTime" : 1534364967,
+    "last_content_update" : 1534364967409,
+    "path" : "C:/Users/aperette/Desktop/Mestrado/pacote/geralReg/R/auxi.R",
+    "project_path" : "R/auxi.R",
+    "properties" : {
+        "docOutlineVisible" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
